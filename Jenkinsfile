@@ -41,6 +41,13 @@ pipeline {
                             }
                     }
                 }
+        
+        stage('Remove local docker image') {
+            steps
+            {
+                sh "docker rmi $registry:$BUILD_NUMBER"
+            }
+    }
       
      }
 }
