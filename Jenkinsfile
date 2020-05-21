@@ -1,5 +1,11 @@
 pipeline {
+    environment {
+        registry = "talismanic/capstone-restapi"
+        registryCredential = 'dockerhub'
+        }
+
      agent any
+
      stages {
          stage('Build') {
              steps {
@@ -15,7 +21,25 @@ pipeline {
                   sh '/home/linuxbrew/.linuxbrew/bin/hadolint Dockerfile'
               }
          }
+         stage('Building image') {
+             steps{
+                 script {
+                     docker.build registry + ":$BUILD_NUMBER"
+                     }
+                }
+            }
+        
 
+        stage('Push Image to Dockerhub') {
+              steps{
+                      script {
+                                docker.withRegistry( '', registryCredential ) 
+                                {
+                                    dockerImage.push()
+                                 }
+                            }
+                    }
+                }
       
      }
 }
