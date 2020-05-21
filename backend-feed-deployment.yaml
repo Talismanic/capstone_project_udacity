@@ -77,3 +77,10 @@ spec:
       - name: aws-secret
         secret:
           secretName: aws-secret       
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  minReadySeconds: 10
+
