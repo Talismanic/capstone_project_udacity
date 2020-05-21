@@ -3,4 +3,4 @@ services:
   api_feed:
     build:
       context: .  
-    image: talismanic/udacity-restapi-feed
+    image: talismanic/capstone-restapi
