@@ -1,0 +1,6 @@
+version: "3"
+services:
+  api_feed:
+    build:
+      context: .  
+    image: talismanic/udacity-restapi-feed
