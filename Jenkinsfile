@@ -50,7 +50,7 @@ pipeline {
                     clusterName=$(aws eks list-clusters | jq -r '.clusters[0]')
                     if [ $clusterName == "MyCluster01"]
                        then
-                          echo "Cluster Exists                        
+                          echo "Cluster Exists"                        
                     '''
                     }
              }
