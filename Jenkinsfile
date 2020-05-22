@@ -47,7 +47,7 @@ pipeline {
                  sh 'echo "Checking EKS Cluster"'
                  sh '''
                      which eksctl
-                     eksctl get cluster
+                     /usr/bin/eksctl get cluster
                  '''
              }
          }
