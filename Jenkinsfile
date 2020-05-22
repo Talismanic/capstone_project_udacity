@@ -48,9 +48,10 @@ pipeline {
                 withAWS(region:'us-east-1', credentials:'talismanic-cfit-serverless-6621-dev') {
                     sh '''
                     clusterName=$(aws eks list-clusters | jq -r '.clusters[0]')
-                    if [ $clusterName == "MyCluster01"]
+                    if [ $clusterName == "MyCluster01" ]
                        then
                           echo "Cluster Exists"                        
+                    fi
                     '''
                     }
              }
