@@ -5,7 +5,6 @@ pipeline {
         dockerImage = ''
         }
 
-     agent any
 
      stages {
          stage('Build') {
@@ -41,9 +40,9 @@ pipeline {
                             }
                     }
                 }
-        stage('Remove Unused docker image') {
+        stage('Remove Unused docker images') {
             steps{
-                sh "docker rmi $(docker images -q --filter "dangling=true")"
+                sh "docker rmi ${docker images -q --filter "dangling=true"}"
       }
     }
         
