@@ -71,13 +71,17 @@ sudo chown -R jenkins:jenkins /var/lib/jenkins/.kube
 ```
 
 Then we need to set up a multi stage jenkins pipeline using blue ocean. This pipeline does the follow stages:
-1. Lint the Dockerfile with Hadolint.
-2. Build the image from the Dockerfile.
-3. Push the image to Dockerhub with the help of provided Dockerhub credential.
-4. Then checks whether any kubernetes cluster is running or not.
-5. If a cluster is running, jenkins deploy the application to the cluster.
-6. Then check the resources to check the status of the application.
-7. Finally delete the dangled images from the build machine to save storage.
+1. Jenkins  watches for commits to the repo every minute
+2. If any commit is found, jenkins immediately starts the build
+3. Lint the Dockerfile with Hadolint.
+4. Build the image from the Dockerfile.
+5. Push the image to Dockerhub with the help of provided Dockerhub credential.
+6. Then checks whether any kubernetes cluster is running or not.
+7. If a cluster is running, jenkins deploy the application to the cluster.
+8. Then check the resources to check the status of the application.
+9. Finally delete the dangled images from the build machine to save storage.
 
 Whole jenkins pipeline will be like below image:
 <img width="940" alt="jenkins pipeline" src="https://github.com/Talismanic/capstone_project_udacity/blob/master/Images/jenkins_whole_pipeline.PNG">
+
+Finally this application can be scaled independently and updated without an downtime in the kubernetes cluster.
