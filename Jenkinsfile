@@ -62,5 +62,11 @@ pipeline {
                     }
              }
          }
+
+        stage('Checking Kubernetes Resources') {
+             steps {
+                 sh 'kubectl get all'
+             }
+         }
      }
 }
