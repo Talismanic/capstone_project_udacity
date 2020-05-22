@@ -20,7 +20,6 @@ pipeline {
          }
          stage('Lint Dockerfile') {
               steps {
-                  sh 'Linting Dockerfile...'
                   sh '/home/linuxbrew/.linuxbrew/bin/hadolint Dockerfile'
               }
          }
