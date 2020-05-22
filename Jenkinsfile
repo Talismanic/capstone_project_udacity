@@ -63,10 +63,17 @@ pipeline {
              }
          }
 
-        stage('Checking Kubernetes Resources') {
+        stage('Checking Resources') {
              steps {
-                 sh 'kubectl get all'
+                withAWS(region:'us-east-1', credentials:'talismanic-cfit-serverless-6621-dev') {
+                    sh '''
+                    echo "Checking the resouces of k8s cluster"
+                    kubectl get all
+                    '''
+                    }
              }
          }
+
+
      }
 }
