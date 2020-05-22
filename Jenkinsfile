@@ -74,6 +74,15 @@ pipeline {
              }
          }
 
+         stage('Removing Untagged Docker Images') {
+              steps {
+                  sh '''
+                  echo "Removing old images"
+                  docker rmi $(docker images | grep '<none>' | awk '{print $3}')
+                  '''
+              }
+         }
+
 
      }
 }
