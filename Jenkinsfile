@@ -49,11 +49,8 @@ pipeline {
                     sh '''
                         aws eks list-clusters
                     '''
+                    }
              }
          }
-
-            
-      
      }
 }
-
