@@ -41,7 +41,18 @@ pipeline {
                             }
                     }
                 }
+         
+         stage('Cluster Check') {
+             steps {
+                 sh 'echo "Checking EKS Cluster"'
+                 sh '''
+                     eksctl get cluster
+                 '''
+             }
+         }
+
             
       
      }
 }
+
