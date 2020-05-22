@@ -55,7 +55,6 @@ pipeline {
                           cd k8s
                           kubectl apply -f .                      
                     fi
-
                     '''
                     }
              }
