@@ -79,7 +79,6 @@ pipeline {
                   sh '''
                   echo "Removing old images"
                   docker rmi $(docker images | grep '<none>' | awk '{print $3}')
-                  echo "Removed the dangled images"
                   '''
               }
          }
