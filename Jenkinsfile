@@ -4,7 +4,8 @@ pipeline {
         registryCredential = 'dockerhub'
         dockerImage = ''
         }
-
+    
+    agent any
 
      stages {
          stage('Build') {
@@ -40,7 +41,7 @@ pipeline {
                             }
                     }
                 }
-        stage('Remove Unused docker images') {
+        stage('Remove Unused docker image') {
             steps{
                 sh "docker rmi ${docker images -q --filter "dangling=true"}"
       }
