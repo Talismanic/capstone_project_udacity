@@ -45,7 +45,7 @@ pipeline {
          
          stage('Cluster Check') {
              steps {
-                withAWS(region:'us-east-1', credentials:awsCred) {
+                withAWS(region:'us-east-1', credentials:'talismanic-cfit-serverless-6621-dev' {
                     sh '''
                         aws eks list-clusters
                     '''
