@@ -46,7 +46,7 @@ pipeline {
              steps {
                  sh 'echo "Checking EKS Cluster"'
                  sh '''
-                     /usr/local/bin/eksctl get cluster
+                     which eksctl
                  '''
              }
          }
@@ -55,3 +55,4 @@ pipeline {
       
      }
 }
+
