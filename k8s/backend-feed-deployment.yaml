@@ -1,22 +1,19 @@
-apiVersion: apps/v1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    service: api-feed
-  name: api-feed
+    service: backend-feed
+  name: backend-feed
 spec:
-  selector:
-    matchLabels:
-      app: udacity-capstone-project
   replicas: 3
   template:
     metadata:
       labels:
-        service: api-feed
+        service: backend-feed
     spec:
       containers:
       - image: talismanic/capstone-restapi:latest
-        name: api-feed
+        name: backend-feed
         imagePullPolicy: Always  
         resources:
           requests:
@@ -79,11 +76,4 @@ spec:
       volumes:
       - name: aws-secret
         secret:
-          secretName: aws-secret       
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
-  minReadySeconds: 10
-
+          secretName: aws-secret
