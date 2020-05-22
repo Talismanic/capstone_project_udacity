@@ -32,8 +32,9 @@ Now we can check the image locally by running command like
 sudo docker images
 ```
 It should provide a image like below:
+<img width="940" alt="docker-images" src="https://github.com/Talismanic/capstone_project_udacity/blob/master/Images/docker_images.PNG">
 
-Or we can check the docker hub for the image. My own image is [here] (https://hub.docker.com/r/talismanic/capstone-restapi)in Dockerhub.
+Or we can check the docker hub for the image. My own image is [here](https://hub.docker.com/r/talismanic/capstone-restapi) in Dockerhub.
 To test it locally you can run:
 ```
 sudo docker run --name capstone_project -d -p 8001:8080 talismanic/capstone-restapi
@@ -52,7 +53,7 @@ Next we can check the deployment status with the following command:
 kubectl get all
 ```
 This should give an output like below image:
-
+<img width="940" alt="kubernest get all" src="https://github.com/Talismanic/capstone_project_udacity/blob/master/Images/kubernetes_get_all.PNG">
 If we see that pods are in ContainerCreating state we need to wait for sometime and then again the above command to get the resource definition. We will get a Domain Name from AWS for the service. It might take some time to update the DNS. So we should use postman collection to test this domain after couple of minutes.
 
 #### Step 03: Integrating CI Tool
@@ -79,4 +80,4 @@ Then we need to set up a multi stage jenkins pipeline using blue ocean. This pip
 7. Finally delete the dangled images from the build machine to save storage.
 
 Whole jenkins pipeline will be like below image:
-
+<img width="940" alt="jenkins pipeline" src="https://github.com/Talismanic/capstone_project_udacity/blob/master/Images/jenkins_whole_pipeline.PNG">
