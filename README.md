@@ -33,7 +33,7 @@ sudo docker images
 ```
 It should provide a image like below:
 
-Or we can check the docker hub for the image. My own image is [here](https://hub.docker.com/r/talismanic/capstone-restapi)in Dockerhub.
+Or we can check the docker hub for the image. My own image is [here] (https://hub.docker.com/r/talismanic/capstone-restapi)in Dockerhub.
 To test it locally you can run:
 ```
 sudo docker run --name capstone_project -d -p 8001:8080 talismanic/capstone-restapi
