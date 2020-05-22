@@ -84,4 +84,8 @@ Then we need to set up a multi stage jenkins pipeline using blue ocean. This pip
 Whole jenkins pipeline will be like below image:
 <img width="940" alt="jenkins pipeline" src="https://github.com/Talismanic/capstone_project_udacity/blob/master/Images/jenkins_whole_pipeline.PNG">
 
-Finally this application can be scaled independently and updated without an downtime in the kubernetes cluster.
+Finally this application can be scaled independently and updated without an downtime in the kubernetes cluster. Current endpoint for this service is:
+```
+af8ad64268de94495ae895e3b83f0465-1616376944.us-east-1.elb.amazonaws.com:8080
+```
+It will be up till 25th May-2020. So you guys can test this.
