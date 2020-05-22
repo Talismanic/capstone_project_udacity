@@ -53,7 +53,10 @@ pipeline {
                        then
                           echo "Cluster Exists"
                           cd k8s
-                          kubectl apply -f .                      
+                          kubectl apply -f .
+
+                    else
+                        echo "Cluster does not exist, please create the cluster first"                      
                     fi
                     '''
                     }

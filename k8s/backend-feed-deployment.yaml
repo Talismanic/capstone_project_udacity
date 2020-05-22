@@ -5,6 +5,9 @@ metadata:
     service: api-feed
   name: api-feed
 spec:
+  selector:
+    matchLabels:
+      app: MyCluster01
   replicas: 3
   template:
     metadata:
