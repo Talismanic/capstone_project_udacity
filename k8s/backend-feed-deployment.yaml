@@ -7,7 +7,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: MyCluster01
+      app: udacity-capstone-project
   replicas: 3
   template:
     metadata:
@@ -15,7 +15,7 @@ spec:
         service: api-feed
     spec:
       containers:
-      - image: talismanic/capstone-restapi
+      - image: talismanic/capstone-restapi:latest
         name: api-feed
         imagePullPolicy: Always  
         resources:

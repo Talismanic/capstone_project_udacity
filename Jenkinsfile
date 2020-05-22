@@ -9,17 +9,18 @@ pipeline {
     agent any
 
      stages {
-         stage('Build') {
+         stage('Starting Pipeline') {
              steps {
-                 sh 'echo "Hello World"'
+                 sh 'echo "Starting pipeline of Udacity Capstone Project"'
                  sh '''
-                     echo "Multiline shell steps works too"
+                     echo "Lets check the working directory pulled from Github"
                      ls -lah
                  '''
              }
          }
          stage('Lint Dockerfile') {
               steps {
+                  sh 'Linting Dockerfile...'
                   sh '/home/linuxbrew/.linuxbrew/bin/hadolint Dockerfile'
               }
          }
@@ -47,7 +48,7 @@ pipeline {
              steps {
                 withAWS(region:'us-east-1', credentials:'talismanic-cfit-serverless-6621-dev') {
                     sh '''
-                    echo "Checking whether custer exists"
+                    echo "Checking whether eks cluster exists"
                     clusterName=$(aws eks list-clusters | jq -r '.clusters[0]')
                     if [ $clusterName == "MyCluster01" ]
                        then
