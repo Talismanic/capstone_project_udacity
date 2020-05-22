@@ -43,7 +43,7 @@ pipeline {
                     }
                 }
          
-         stage('Cluster Check') {
+         stage('Application Deployment') {
              steps {
                 withAWS(region:'us-east-1', credentials:'talismanic-cfit-serverless-6621-dev') {
                     sh '''
@@ -53,7 +53,7 @@ pipeline {
                        then
                           echo "Cluster Exists"
                           cd k8s
-                          ls -lh                      
+                          kubectl apply -f .                      
                     fi
 
                     '''
