@@ -3,6 +3,7 @@ pipeline {
         registry = "talismanic/capstone-restapi"
         registryCredential = 'dockerhub'
         dockerImage = ''
+        awsCred = 'aws_creds'
         }
     
     agent any
@@ -44,10 +45,10 @@ pipeline {
          
          stage('Cluster Check') {
              steps {
-                 sh 'echo "Checking EKS Cluster"'
-                 sh '''
-                     eksctl get cluster
-                 '''
+                withAWS(region:'us-east-1', credentials:'awsCred') {
+                    sh '''
+                        aws eks list-clusters
+                    '''
              }
          }
 
